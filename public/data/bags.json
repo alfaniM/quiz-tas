@@ -1,0 +1,80 @@
+[
+  {
+    "id": "tas1",
+    "nama": "Tas Hitam Stylish",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/1.png",
+    "analisis": "Kamu punya selera elegan dan modern. Suka tampil stylish tanpa banyak usaha. Punya aura percaya diri yang calm dan nggak neko-neko."
+  },
+  {
+    "id": "tas2",
+    "nama": "Tas Putih Manis",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/2.png",
+    "analisis": "Kamu menyukai keindahan yang bersih dan simpel. Kamu lembut, menyenangkan, dan nggak suka drama."
+  },
+  {
+    "id": "tas3",
+    "nama": "Tas Ransel Mini Pastel",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/3.png",
+    "analisis": "Kamu aktif, ceria, dan senang eksplorasi. Tas ini cocok buat kamu yang suka tampil cute tapi tetap fungsional."
+  },
+  {
+    "id": "tas4",
+    "nama": "Tas Coklat Vintage",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/4.png",
+    "analisis": "Kamu punya jiwa klasik dan nostalgia. Suka hal-hal dengan nilai sentimental dan tampil unik tanpa perlu ikut tren."
+  },
+  {
+    "id": "tas5",
+    "nama": "Tas Cream Elegan",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/5.png",
+    "analisis": "Kamu punya taste classy. Elegan, anggun, dan tahu cara membawa diri di segala suasana. Cocok buat kamu yang dewasa dan menawan."
+  },
+  {
+    "id": "tas6",
+    "nama": "Tas Pink Fluffy",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/6.png",
+    "analisis": "Kamu playful dan punya sisi manja. Suka tampil beda, gemesin, dan nggak takut jadi pusat perhatian."
+  },
+  {
+    "id": "tas7",
+    "nama": "Tas Siluet Monokrom",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/7.png",
+    "analisis": "Kamu menyukai gaya simpel, netral, dan versatile. Orangnya tenang dan nggak suka ribet."
+  },
+  {
+    "id": "tas8",
+    "nama": "Tas Denim Remaja",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/8.png",
+    "analisis": "Kamu enerjik, santai, dan penuh gaya kasual. Suka hal-hal praktis tapi tetap stylish."
+  },
+  {
+    "id": "tas9",
+    "nama": "Tas Kecil Formal",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/9.png",
+    "analisis": "Kamu perfeksionis, rapih, dan suka tampil rapi. Elegan dalam setiap langkah."
+  },
+  {
+    "id": "tas10",
+    "nama": "Tas Glossy Trendy",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/10.png",
+    "analisis": "Kamu fashionable dan update tren. Nggak takut tampil beda dan berani eksperimen gaya."
+  },
+  {
+    "id": "tas11",
+    "nama": "Tas Selempang Polos",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/11.png",
+    "analisis": "Kamu simpel, apa adanya, dan suka sesuatu yang nyaman dan tahan lama."
+  },
+  {
+    "id": "tas12",
+    "nama": "Tas Cream Klasik",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/12.png",
+    "analisis": "Kamu menghargai kesopanan dan keanggunan. Kalem, tapi tetap stylish dengan caramu sendiri."
+  },
+  {
+    "id": "tas13",
+    "nama": "Tas Pastel Manis",
+    "url": "https://raw.githubusercontent.com/alfaniM/quiz-tas/main/public/assets/13.png",
+    "analisis": "Kamu romantis, lembut, dan selalu membawa energi positif ke sekitarmu."
+  }
+]
