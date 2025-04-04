@@ -1,8 +1,9 @@
 let selectedFlower = null;
 let top3 = [];
 let tasList = [];
-let round = [];
-let nextRound = [];
+let voteHistory = [];
+let currentIndex = 1;
+let currentWinner = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   const pages = document.querySelectorAll('.page');
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleHashChange() {
     const hash = window.location.hash.replace('#', '') || 'page-name';
     showPage(hash);
-    updateProgressBar(hash); // Tambahkan ini!
+    updateProgressBar(hash);
 
     if (hash === 'page-tas') {
       loadTasData();
@@ -33,12 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('hashchange', handleHashChange);
   handleHashChange();
 
-  // Panggil loader warna & bunga
   loadColors();
   loadFlowers();
 
-  // Navigasi tombol
   document.getElementById('btn-next-name')?.addEventListener('click', () => {
+    const username = document.getElementById('username');
+    if (!username.value.trim()) {
+      username.classList.add('input-error');
+      username.placeholder = 'Nama harus diisi dulu yaa 😅';
+      return;
+    }
+    username.classList.remove('input-error');
     location.hash = 'page-warna';
   });
 
@@ -52,12 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('btn-next-tas')?.addEventListener('click', () => {
     location.hash = 'page-summary';
-    renderTop3Summary();
+    renderTop3Pick();
   });
 
-  document.getElementById('btn-next-summary')?.addEventListener('click', () => {
+  document.getElementById('btn-final-next')?.addEventListener('click', () => {
     location.hash = 'page-hasil';
     renderHasilAkhir();
+  });
+
+  document.getElementById('btn-restart')?.addEventListener('click', () => {
+    location.hash = 'page-name';
+    document.getElementById('username').value = '';
+    document.getElementById('btn-next-bunga').disabled = true;
+    top3 = [];
+    tasList = [];
+    voteHistory = [];
+    currentIndex = 1;
+    currentWinner = null;
+    document.getElementById('progress-fill').style.width = '0%';
   });
 });
 
@@ -111,8 +129,10 @@ async function loadTasData() {
 }
 
 function startTasBattle() {
-  round = [...tasList].sort(() => 0.5 - Math.random());
-  nextRound = [];
+  tasList = tasList.sort(() => 0.5 - Math.random()); // shuffle
+  currentIndex = 1;
+  currentWinner = tasList[0];
+  voteHistory = [currentWinner];
   top3 = [];
   document.getElementById('btn-next-tas').style.display = 'none';
   showNextBattle();
@@ -122,46 +142,51 @@ function showNextBattle() {
   const container = document.getElementById('tas-battle');
   container.innerHTML = '';
 
-  if (round.length === 1) {
-    top3.unshift(round[0]); // final winner
+  if (currentIndex >= tasList.length) {
+    top3 = [currentWinner, ...voteHistory.filter((b) => b !== currentWinner)].slice(0, 3);
     document.getElementById('btn-next-tas').style.display = 'inline-block';
     return;
   }
 
-  const tas1 = round.shift();
-  const tas2 = round.shift();
-
-  [tas1, tas2].forEach((tas) => {
+  const challenger = tasList[currentIndex];
+  [currentWinner, challenger].forEach((tas) => {
     const img = document.createElement('img');
     img.src = tas.url;
     img.alt = tas.nama;
     img.addEventListener('click', () => {
-      nextRound.push(tas);
-      if (round.length === 0) {
-        if (nextRound.length <= 3) {
-          top3.unshift(...nextRound.slice(0, 3));
-        }
-        round = [...nextRound];
-        nextRound = [];
+      if (tas !== currentWinner) {
+        voteHistory.push(tas);
+        currentWinner = tas;
+      } else {
+        voteHistory.push(tas);
       }
+      currentIndex++;
       showNextBattle();
     });
     container.appendChild(img);
   });
 }
 
-function renderTop3Summary() {
-  const container = document.getElementById('top3-summary');
+function renderTop3Pick() {
+  const container = document.getElementById('top3-pick-list');
   container.innerHTML = '';
+  document.getElementById('btn-final-next').style.display = 'none';
 
   top3.slice(0, 3).forEach((tas, index) => {
-    const div = document.createElement('div');
-    if (index === 0) div.classList.add('top1');
-    div.innerHTML = `
-      <img src="${tas.url}" alt="${tas.nama}" />
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${tas.url}" alt="${tas.nama}" style="width: 100%; border-radius: 12px;" />
       <p>${tas.nama}</p>
     `;
-    container.appendChild(div);
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.card').forEach((c) => c.classList.remove('selected'));
+      card.classList.add('selected');
+      top3.unshift(...top3.splice(index, 1)); // pindahkan ke posisi 0
+      document.getElementById('btn-final-next').style.display = 'inline-block';
+    });
+
+    container.appendChild(card);
   });
 }
 
@@ -171,10 +196,15 @@ function renderHasilAkhir() {
   const warna1 = document.getElementById('color-1').value;
   const warna2 = document.getElementById('color-2').value;
   const bunga = selectedFlower;
-
   const top = top3[0];
+
   const hasil = `
     <h3>${nama}, kamu cocok dengan <span style="color:var(--ios-primary);">${top.nama}</span> 🌟</h3>
+    <div style="display: flex; justify-content: center; gap: 20px;">
+      <img src="${top.url}" alt="${top.nama}" />
+      <img src="${bunga.url}" alt="${bunga.nama}" />
+      <div style="background-color: ${warna1}; border-radius: 50%; width: 80px; height: 80px;"></div>
+    </div>
     <p>${top.analisis}</p>
     <p>Warna favoritmu: <b>${warna1}</b> & <b>${warna2}</b></p>
     <p>Bunga pilihanmu: ${bunga.emoji} <b>${bunga.nama}</b></p>
@@ -182,4 +212,25 @@ function renderHasilAkhir() {
   `;
 
   resultBox.innerHTML = hasil;
+
+  // Send data to Google Sheets
+  const resultData = {
+    nama: nama,
+    warna1: warna1,
+    warna2: warna2,
+    bunga: bunga.nama,
+    tas: top3.slice(0, 3),
+  };
+
+  fetch('AKfycbxvzFNlqEMIWy7he4NvgcbZhSZdxKh1PufROsXO8vAa97JQbXXKEgU12lJuPefXqL23BQ', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(resultData),
+  }).then((response) => {
+    if (response.ok) {
+      console.log('Data successfully sent to Google Sheets');
+    } else {
+      console.error('Error sending data to Google Sheets');
+    }
+  });
 }

@@ -53,10 +53,11 @@
 
       <!-- Halaman 5: Summary -->
       <section id="page-summary" class="page">
-        <h2 style="text-align: center">3 Tas Favoritmu ✨</h2>
-        <div id="top3-summary" class="summary-grid"></div>
+        <h2 style="text-align: center">Nah ini top 3, pilihan kamu<br />yu tentuin pilihan kamu</h2>
+        <div id="top3-pick-list" class="card-list-vertical"></div>
+        <!-- Pastikan ada elemen ini -->
         <div style="text-align: center">
-          <button id="btn-next-summary">Lanjut ke kepribadian 🌈</button>
+          <button id="btn-final-next" style="display: none">Lanjut ke hasil 🌟</button>
         </div>
       </section>
 
@@ -64,6 +65,11 @@
       <section id="page-hasil" class="page">
         <h2 style="text-align: center">Kamu adalah...</h2>
         <div id="personality-result" class="result-box"></div>
+
+        <!-- ⬇️ Tambahkan ini -->
+        <div style="text-align: center; margin-top: 2rem">
+          <button id="btn-restart" class="btn-secondary">Ulangi Quiz 🔁</button>
+        </div>
       </section>
     </main>
     <script src="script.js"></script>
