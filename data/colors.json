@@ -1,0 +1,26 @@
+[
+  {
+    "id": "merah",
+    "label": "Merah",
+    "hex": "#E63946",
+    "arti": "Berani, penuh cinta, dan bersemangat."
+  },
+  {
+    "id": "biru",
+    "label": "Biru",
+    "hex": "#457B9D",
+    "arti": "Tenang, setia, dan menyukai kedamaian."
+  },
+  {
+    "id": "hitam",
+    "label": "Hitam",
+    "hex": "#1D1D1D",
+    "arti": "Elegan, misterius, dan percaya diri."
+  },
+  {
+    "id": "lainnya",
+    "label": "Lainnya",
+    "hex": "#CCCCCC",
+    "arti": "Unik dan nggak suka ikut arus."
+  }
+]

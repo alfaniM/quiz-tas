@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Tas Favorit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+
+      <!-- Halaman 1: Nama -->
+      <section id="page-name" class="page active">
+        <h2 style="text-align: center">Namamu yang manis?</h2>
+        <input type="text" id="username" placeholder="Tulis di sini yaa..." class="input-ios" />
+        <div style="text-align: center">
+          <button id="btn-next-name">Lanjut, sayang ♥️</button>
+        </div>
+      </section>
+
+      <!-- Halaman 2: Warna -->
+      <section id="page-warna" class="page">
+        <h2 style="text-align: center">Pilih 2 warna favoritmu 🎨</h2>
+        <div class="color-selects">
+          <select id="color-1" class="input-ios"></select>
+          <select id="color-2" class="input-ios"></select>
+        </div>
+        <div style="text-align: center">
+          <button id="btn-next-warna">Lanjut yuk 💙</button>
+        </div>
+      </section>
+
+      <!-- Halaman 3: Bunga -->
+      <section id="page-bunga" class="page">
+        <h2 style="text-align: center">Bunga yang kamu suka 🌺</h2>
+        <div id="flower-list" class="card-list"></div>
+        <div style="text-align: center">
+          <button id="btn-next-bunga" disabled>Lanjut 🌸</button>
+        </div>
+      </section>
+
+      <!-- Halaman 4: Tas -->
+      <section id="page-tas" class="page">
+        <h2 style="text-align: center">Pilih tas favoritmu 👜</h2>
+        <div id="tas-battle" class="battle-zone"></div>
+        <div style="text-align: center">
+          <button id="btn-next-tas" style="display: none">Lanjut ke hasil 🌟</button>
+        </div>
+      </section>
+
+      <!-- Halaman 5: Summary -->
+      <section id="page-summary" class="page">
+        <h2 style="text-align: center">3 Tas Favoritmu ✨</h2>
+        <div id="top3-summary" class="summary-grid"></div>
+        <div style="text-align: center">
+          <button id="btn-next-summary">Lanjut ke kepribadian 🌈</button>
+        </div>
+      </section>
+
+      <!-- Halaman 6: Hasil -->
+      <section id="page-hasil" class="page">
+        <h2 style="text-align: center">Kamu adalah...</h2>
+        <div id="personality-result" class="result-box"></div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
