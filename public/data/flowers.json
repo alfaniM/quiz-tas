@@ -1,0 +1,44 @@
+[
+  {
+    "id": "mawar",
+    "nama": "Mawar",
+    "emoji": "\ud83c\udf39",
+    "url": "https://tse2.mm.bing.net/th?id=OIP.y43SBrkrHIyswuqoBQlO3QHaF7&pid=Api",
+    "arti": "Simbol cinta, romantis, dan penuh perasaan."
+  },
+  {
+    "id": "lili",
+    "nama": "Lili",
+    "emoji": "\ud83c\udf38",
+    "url": "https://tse4.mm.bing.net/th?id=OIP.kyk5Ui1MOBJqITfUZsoJEgHaEu&pid=Api",
+    "arti": "Lembut, elegan, dan menyukai keindahan dalam kesederhanaan."
+  },
+  {
+    "id": "tulip",
+    "nama": "Tulip",
+    "emoji": "\ud83c\udf37",
+    "url": "https://tse2.mm.bing.net/th?id=OIP.fv_zeMJzIWn8ypSjb7x4uAHaFj&pid=Api",
+    "arti": "Optimis, ceria, dan suka mencoba hal baru."
+  },
+  {
+    "id": "anggrek",
+    "nama": "Anggrek",
+    "emoji": "\ud83d\udc90",
+    "url": "https://tse4.mm.bing.net/th?id=OIP.sNVFmUDYL7L-pI1rnHGzJwHaFj&pid=Api",
+    "arti": "Unik, misterius, dan punya selera tinggi."
+  },
+  {
+    "id": "matahari",
+    "nama": "Bunga Matahari",
+    "emoji": "\ud83c\udf3b",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.jpg",
+    "arti": "Selalu ceria, positif, dan menyebarkan energi baik."
+  },
+  {
+    "id": "melati",
+    "nama": "Melati",
+    "emoji": "\ud83e\udd0d",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Jasminum_sambac_%28Mogra%29_flower_at_Indira_Gandhi_Krishi_Vishwavidyalaya_IGKV_Raipur_Chhattisgarh.jpg",
+    "arti": "Lembut, penyayang, dan dekat dengan tradisi."
+  }
+]
